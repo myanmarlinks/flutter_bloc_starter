@@ -7,7 +7,7 @@ class GreetBloc extends Bloc<GreetEvent, GreetState> {
   static const List<String> greetList = ["Howdy!", "What's Up!", "You're Rock!"];
 
   @override
-  GreetState get initialState => InitialGreetState("Hello World!");
+  GreetState get initialState => InitialGreetState();
 
   @override
   Stream<GreetState> mapEventToState(

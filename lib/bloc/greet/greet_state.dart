@@ -3,10 +3,7 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class GreetState {}
 
-class InitialGreetState extends GreetState {
-  final String helloWorldGreet;
-  InitialGreetState(this.helloWorldGreet);
-}
+class InitialGreetState extends GreetState {}
 
 class HowdyGreetState extends GreetState {
   final String howdyGreet;

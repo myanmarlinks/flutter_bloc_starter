@@ -78,7 +78,10 @@ class GreetWidget extends StatelessWidget {
         print("GREET WIDGET BUILD!");
         String _greet = "Loading...";
         if(state is InitialGreetState) {
-          _greet = state.helloWorldGreet;
+          return Container(
+            padding: EdgeInsets.all(20.0),
+            child: CircularProgressIndicator(),
+          );
         }
         if(state is HowdyGreetState) {
           _greet = state.howdyGreet;
