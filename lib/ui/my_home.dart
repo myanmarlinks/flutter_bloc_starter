@@ -76,7 +76,20 @@ class GreetWidget extends StatelessWidget {
     return BlocBuilder<GreetBloc, GreetState> (
       builder: (context, state) {
         print("GREET WIDGET BUILD!");
-        return buildGreet(state.greet);
+        String _greet = "Loading...";
+        if(state is InitialGreetState) {
+          _greet = state.helloWorldGreet;
+        }
+        if(state is HowdyGreetState) {
+          _greet = state.howdyGreet;
+        }
+        if(state is WhatUpGreetState) {
+          _greet = state.whatUpGreet;
+        }
+        if(state is YouAreRockGreetState) {
+          _greet = state.youAreRockGreet;
+        }
+        return buildGreet(_greet);
       },
     );
   }

@@ -1,26 +1,24 @@
 import 'package:meta/meta.dart';
 
 @immutable
-abstract class GreetState {
-  final String greet;
-  GreetState(this.greet);
-}
+abstract class GreetState {}
 
 class InitialGreetState extends GreetState {
-  InitialGreetState(String greet) : super(greet);
-
+  final String helloWorldGreet;
+  InitialGreetState(this.helloWorldGreet);
 }
 
 class HowdyGreetState extends GreetState {
-  HowdyGreetState(String greet) : super(greet);
-
+  final String howdyGreet;
+  HowdyGreetState(this.howdyGreet);
 }
 
 class WhatUpGreetState extends GreetState {
-  WhatUpGreetState(String greet) : super(greet);
+  final String whatUpGreet;
+  WhatUpGreetState(this.whatUpGreet);
 }
 
 class YouAreRockGreetState extends GreetState {
-  YouAreRockGreetState(String greet) : super(greet);
-
+  final String youAreRockGreet;
+  YouAreRockGreetState(this.youAreRockGreet);
 }
