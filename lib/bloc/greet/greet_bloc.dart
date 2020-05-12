@@ -4,23 +4,30 @@ import './bloc.dart';
 
 class GreetBloc extends Bloc<GreetEvent, GreetState> {
 
-  static const List<String> greetList = ["Hello World!", "Howdy!", "What's Up!", "You're Rock!"];
+  static const List<String> greetList = ["Howdy!", "What's Up!", "You're Rock!"];
 
   @override
-  GreetState get initialState => InitialGreetState(greetList[0]);
+  GreetState get initialState => InitialGreetState("Hello World!");
 
   @override
   Stream<GreetState> mapEventToState(
     GreetEvent event,
   ) async* {
     if(event is HowdyGreetEvent) {
-      yield HowdyGreetState(greetList[1]);
+      final String greet = await getData(0);
+      yield HowdyGreetState(greet);
     }
     if(event is WhatUpGreetEvent) {
-      yield WhatUpGreetState(greetList[2]);
+      final String greet = await getData(1);
+      yield WhatUpGreetState(greet);
     }
     if(event is YouAreRockGreetEvent) {
-      yield YouAreRockGreetState(greetList[3]);
+      final String greet = await getData(2);
+      yield YouAreRockGreetState(greet);
     }
+  }
+
+  Future getData(int index) async {
+    return greetList[index];
   }
 }

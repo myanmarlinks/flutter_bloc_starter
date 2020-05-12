@@ -13,6 +13,7 @@ class InitialGreetState extends GreetState {
 
 class HowdyGreetState extends GreetState {
   HowdyGreetState(String greet) : super(greet);
+
 }
 
 class WhatUpGreetState extends GreetState {
@@ -21,4 +22,5 @@ class WhatUpGreetState extends GreetState {
 
 class YouAreRockGreetState extends GreetState {
   YouAreRockGreetState(String greet) : super(greet);
+
 }

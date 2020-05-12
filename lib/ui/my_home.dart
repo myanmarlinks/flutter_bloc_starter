@@ -7,6 +7,7 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("HOME WIDGET BUILD");
     return Scaffold(
       appBar: AppBar(
         title: Text("Simple BLoC Test"),
@@ -74,6 +75,7 @@ class GreetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GreetBloc, GreetState> (
       builder: (context, state) {
+        print("GREET WIDGET BUILD!");
         return buildGreet(state.greet);
       },
     );
