@@ -13,6 +13,7 @@ class GreetBloc extends Bloc<GreetEvent, GreetState> {
   Stream<GreetState> mapEventToState(
     GreetEvent event,
   ) async* {
+    yield InitialGreetState();
     if(event is HowdyGreetEvent) {
       final String greet = await getData(0);
       yield HowdyGreetState(greet);
@@ -28,6 +29,7 @@ class GreetBloc extends Bloc<GreetEvent, GreetState> {
   }
 
   Future getData(int index) async {
+    await Future.delayed(Duration(seconds: 2));
     return greetList[index];
   }
 }
