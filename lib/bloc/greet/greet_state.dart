@@ -19,3 +19,5 @@ class YouAreRockGreetState extends GreetState {
   final String youAreRockGreet;
   YouAreRockGreetState(this.youAreRockGreet);
 }
+
+class ErrorGreetState extends GreetState {}

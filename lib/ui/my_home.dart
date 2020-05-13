@@ -83,6 +83,19 @@ class GreetWidget extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
+
+        if(state is ErrorGreetState) {
+          return Container(
+            padding: EdgeInsets.all(20.0),
+            child: Center(
+              child: Text(
+                  "Error!",
+                style: GoogleFonts.oswald(fontSize: 50.0),
+              ),
+            ),
+          );
+        }
+
         if(state is HowdyGreetState) {
           _greet = state.howdyGreet;
         }

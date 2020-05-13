@@ -23,13 +23,22 @@ class GreetBloc extends Bloc<GreetEvent, GreetState> {
       yield WhatUpGreetState(greet);
     }
     if(event is YouAreRockGreetEvent) {
-      final String greet = await getData(2);
-      yield YouAreRockGreetState(greet);
+      try {
+        final String greet = await getError(2);
+        yield YouAreRockGreetState(greet);
+      } on Exception {
+        yield ErrorGreetState();
+      }
+
     }
   }
 
-  Future getData(int index) async {
-    await Future.delayed(Duration(seconds: 2));
+  Future<String> getData(int index) async {
+    await Future.delayed(Duration(seconds: 1));
     return greetList[index];
+  }
+
+  Future<String> getError(int index) async {
+    throw Exception("Error");
   }
 }
