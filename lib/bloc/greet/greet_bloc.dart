@@ -13,16 +13,18 @@ class GreetBloc extends Bloc<GreetEvent, GreetState> {
   Stream<GreetState> mapEventToState(
     GreetEvent event,
   ) async* {
-    yield InitialGreetState();
     if(event is HowdyGreetEvent) {
+      yield InitialGreetState();
       final String greet = await getData(0);
       yield HowdyGreetState(greet);
     }
     if(event is WhatUpGreetEvent) {
+      yield InitialGreetState();
       final String greet = await getData(1);
       yield WhatUpGreetState(greet);
     }
     if(event is YouAreRockGreetEvent) {
+      yield InitialGreetState();
       try {
         final String greet = await getError(2);
         yield YouAreRockGreetState(greet);
